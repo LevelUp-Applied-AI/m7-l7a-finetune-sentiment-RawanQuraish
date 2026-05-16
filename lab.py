@@ -66,7 +66,6 @@ def make_training_args(output_dir: str, lr=5e-5, epochs=2, batch_size=8, seed=42
         report_to="none"
     )
 
-    # 🔥 FIX مهم جداً للاختبارات
     args.eval_strategy = "epoch"
     args.save_strategy = "epoch"
 
@@ -232,11 +231,11 @@ def main():
 
     
     if os.environ.get("DATA_PATH") is None:
-        repo_id = "m7-app-review-sentiment"
+        repo_id = "RawanHQ/m7-app-review-sentiment"
         try:
             trainer.push_to_hub(repo_id)
             tokenizer.push_to_hub(repo_id)
-            print(f"Pushed to HF Hub: https://huggingface.co/RawanHQ/{repo_id}")
+            print(f"Pushed to HF Hub: https://huggingface.co/RawanHQ/m7-app-review-sentiment")
         except Exception as e:
             print("HF push failed:", e)
 
